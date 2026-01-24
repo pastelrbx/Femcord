@@ -24,7 +24,7 @@ import { gitRemote } from "@shared/vencordUserAgent";
 import { DONOR_ROLE_ID, GUILD_ID, IS_MAC, IS_WINDOWS, VC_DONOR_ROLE_ID, VC_GUILD_ID } from "@utils/constants";
 import { classNameFactory } from "@utils/css";
 import { Margins } from "@utils/margins";
-import { identity, isAnyPluginDev } from "@utils/misc";
+import { identity, isAnyPluginDev, isEquicordPluginDev, isFemcordPluginDev } from "@utils/misc";
 import { relaunch } from "@utils/native";
 import { GuildMemberStore, React, Select, UserStore } from "@webpack/common";
 import BadgeAPI from "plugins/_api/badges";
@@ -160,7 +160,7 @@ function EquicordSettings() {
                 <SpecialCard
                     title="Contributions"
                     subtitle="Thank you for contributing!"
-                    description="Since you've contributed to Equicord you now have a cool new badge!"
+                    description={`Since you've contributed to ${isFemcordPluginDev(user.id) ? "Femcord" : isEquicordPluginDev(user.id) ? "Equicord" : "Vencord"} you now have a cool new badge!`}
                     cardImage={COZY_CONTRIB_IMAGE}
                     backgroundImage={CONTRIB_BACKGROUND_IMAGE}
                     backgroundColor="#EDCC87"
