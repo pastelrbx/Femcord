@@ -46,7 +46,7 @@ jobs:
             - name: Collect files to be released
               run: |
                   cd dist
-                  mkdir release
+                  mkdir -p release
 
                   cp browser/browser.* release
                   cp Equicord.user.{js,js.LEGAL.txt} release
@@ -62,14 +62,30 @@ jobs:
                   done
 
                   find release -size 0 -delete
-                  rm release/package.json
-                  rm release/*.map
+                  rm -f release/package.json
+                  rm -f release/*.map
 
             - name: Get current date
               id: date
-              run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
+              run: echo "date=$(date +'%Y-%m-%d')" >> "$GITHUB_OUTPUT"
 
             - name: Upload Equicord Stable
               run: |
-                  gh release create ${{ steps.date.outputs.date }} --latest=false
-                  gh release upload ${{ steps.date.outputs.date }} --clobber dist/release/*
+                  TAG="${{ steps.date.outputs.date }}"
+                  REPO="${GITHUB_REPOSITORY}"
+
+                  # Create release if it doesn't exist yet (idempotent for reruns)
+                  if ! gh release view "$TAG" --repo "$REPO" >/dev/null 2>&1; then
+                    gh release create "$TAG" --latest=false --repo "$REPO"
+                  fi
+
+                  # Upload assets (retry a few times to avoid API propagation races)
+                  for i in {1..10}; do
+                    if gh release upload "$TAG" --clobber dist/release/* --repo "$REPO"; then
+                      exit 0
+                    fi
+                    sleep 2
+                  done
+
+                  echo "Failed to upload release assets after retries."
+                  exit 1
