@@ -64,6 +64,26 @@ jobs:
                   rm release/package.json
                   rm release/*.map
 
+            - name: Ensure latest release exists
+
+
+
+              run: |
+
+
+                  set -e
+
+
+                  # Create the release if missing; otherwise just continue.
+
+
+                  gh release view latest >/dev/null 2>&1 || \
+
+
+                    gh release create latest --title "Latest" --notes "Automated build from main" --latest
+
+
+
             - name: Upload Equicord Stable
               run: |
                   gh release upload latest --clobber dist/release/*
