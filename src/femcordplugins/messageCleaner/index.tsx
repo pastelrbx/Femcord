@@ -10,7 +10,7 @@ import {
 } from "@api/ContextMenu";
 import { showNotification } from "@api/Notifications";
 import { definePluginSettings } from "@api/Settings";
-import { TestcordDevs } from "@utils/constants";
+import { FemcordDevs } from "@utils/constants";
 import definePlugin, { OptionType } from "@utils/types";
 import type { Channel, Message } from "@vencord/discord-types";
 import { ChannelStore, Menu, RestAPI, UserStore } from "@webpack/common";
@@ -633,11 +633,9 @@ export default definePlugin({
     description:
         "Cleans all messages in a channel with intelligent rate limiting management, real-time statistics and secure confirmation",
     authors: [
-        {
-            name: "Bash",
-            id: 1327483363518582784n,
-        },
-        TestcordDevs.x2b
+        FemcordDevs.Bash,
+        FemcordDevs.x2b,
+        FemcordDevs.Blue
     ],
     dependencies: ["ContextMenuAPI"],
     settings,

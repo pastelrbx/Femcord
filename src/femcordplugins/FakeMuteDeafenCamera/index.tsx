@@ -6,7 +6,7 @@
 
 import { definePluginSettings } from "@api/Settings";
 import { UserAreaButton } from "@api/UserArea";
-import { Devs, FemcordDevs, TestcordDevs } from "@utils/constants";
+import { FemcordDevs } from "@utils/constants";
 import definePlugin, { OptionType } from "@utils/types";
 import { findByPropsLazy } from "@webpack";
 import { Menu, React } from "@webpack/common";
@@ -148,7 +148,7 @@ const StateKeys = ["selfDeaf", "selfMute", "selfVideo"];
 export default definePlugin({
     name: "FakeMuteDeafenCamera",
     description: "Fake mute, deafen & Camera. Configure button behavior in Settings. Contributed by Chaython.",
-    authors: [TestcordDevs.x2b, FemcordDevs.Blue],
+    authors: [FemcordDevs.x2b, FemcordDevs.Blue],
     settings,
     
     modifyVoiceState(e: any) {

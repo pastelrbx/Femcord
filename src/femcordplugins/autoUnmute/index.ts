@@ -8,7 +8,7 @@ import {
     RestAPI,
     Constants,
 } from "@webpack/common";
-import { TestcordDevs } from "@utils/constants";
+import { FemcordDevs } from "@utils/constants";
 
 // Retrieval of necessary stores and actions
 const VoiceStateStore = findStoreLazy("VoiceStateStore");
@@ -83,11 +83,9 @@ export default definePlugin({
     description:
         "Automatically unmutes and undeafens when server mute/deafen occurs if you have permissions (no notifications)",
     authors: [
-        {
-            name: "Bash",
-            id: 1327483363518582784n,
-        },
-        TestcordDevs.x2b
+        FemcordDevs.Bash,
+        FemcordDevs.x2b,
+        FemcordDevs.Blue
     ],
 
     // Using the flux system to listen to voice events

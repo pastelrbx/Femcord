@@ -28,7 +28,6 @@ export const EQUICORD_HELPERS = "1326406112144265257";
 export const EQUIBOP_CONTRIB_ROLE_ID = "1287079931645263968";
 export const VENCORD_CONTRIB_ROLE_ID = "1173343399470964856";
 export const EQUIBOT_USER_ID = "1243063117852835941";
-export const TESTCORD_GUILD_ID = "1173279886065029291";
 
 // Vencord
 export const VC_SUPPORT_CHANNEL_ID = "1026515880080842772";
@@ -1260,10 +1259,10 @@ export const FemcordDevs = Object.freeze({
     Blue: {
         name: "blueworldclass",
         id: 1425013333173735447n
-    }
-} satisfies Record<string, Dev>);
+    },
 
-export const TestcordDevs = Object.freeze({
+    // !!TestcordDevs BELOW!! \\
+
     x2b: {
         name: "x2b",
         id: 996137713432530976n
@@ -1279,6 +1278,11 @@ export const TestcordDevs = Object.freeze({
     vampireslover: {
         name: "vampireslover",
         id: 1455033270709256284n
+    },
+
+    Bash: { // MessageCleaner and AutoUnmute
+        name: "Bash",
+        id: 1327483363518582784n,
     },
 } satisfies Record<string, Dev>);
 
@@ -1302,14 +1306,6 @@ export const EquicordDevsById = /* #__PURE__*/ (() =>
 export const FemcordDevsById = /* #__PURE__*/ (() =>
     Object.freeze(Object.fromEntries(
         Object.entries(FemcordDevs)
-            .filter(d => d[1].id !== 0n)
-            .map(([_, v]) => [v.id, v] as const)
-    ))
-)() as Record<string, Dev>;
-
-export const TestcordDevsById = /* #__PURE__*/ (() =>
-    Object.freeze(Object.fromEntries(
-        Object.entries(TestcordDevs)
             .filter(d => d[1].id !== 0n)
             .map(([_, v]) => [v.id, v] as const)
     ))

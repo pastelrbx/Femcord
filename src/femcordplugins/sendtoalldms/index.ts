@@ -6,7 +6,7 @@
 
 import { ApplicationCommandInputType, findOption, RequiredMessageOption } from "@api/Commands";
 import { definePluginSettings } from "@api/Settings";
-import { TestcordDevs } from "@utils/constants"; // Ensure this exists in your constants, otherwise replace with VencordDevs FIX: Imported from correct location
+import { FemcordDevs } from "@utils/constants"; // Ensure this exists in your constants, otherwise replace with VencordDevs FIX: Imported from correct location
 import { sendMessage } from "@utils/discord";
 import definePlugin, { OptionType } from "@utils/types";
 import { CommandArgument, CommandContext } from "@vencord/discord-types";
@@ -15,7 +15,7 @@ import { ChannelStore, RelationshipStore } from "@webpack/common";
 export default definePlugin({
     name: "SendToAllDMs",
     description: "Adds a command to send a message to all friends' DMs with blacklist/whitelist settings. WE CANNOT GUARANTEE THIS PLUGIN WON'T GET YOU BANNED.",
-    authors: [TestcordDevs.x2b],
+    authors: [FemcordDevs.x2b, FemcordDevs.Blue],
     settings: definePluginSettings({
         sendToAllDMs: {
             type: OptionType.BOOLEAN,
