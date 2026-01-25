@@ -1,6 +1,7 @@
 import definePlugin from "@utils/types";
-import { findByPropsLazy, findStoreLazy } from "@webpack";
 import {
+    findByPropsLazy,
+    findStoreLazy,
     UserStore,
     PermissionStore,
     PermissionsBits,
