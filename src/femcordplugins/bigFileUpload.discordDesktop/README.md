@@ -6,7 +6,6 @@
 -   **Full ShareX support** - import `.sxcu` configs with POST/PUT/PATCH methods, binary uploads, and smart JSON response parsing
 -   **Nitro-aware mode** - optionally let Discord handle files under your Nitro limit natively
 -   **Drag & drop / paste** - intercept file uploads up to 1GB
--   **Video embedding** - auto-wrap video links with embeds.video for inline playback
 -   **Better error handling** - detailed error messages with file context for easier debugging
 
 > [!TIP]

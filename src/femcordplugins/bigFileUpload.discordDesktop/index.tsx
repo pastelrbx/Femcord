@@ -473,12 +473,6 @@ function SettingsComponent(props: { setValue(v: any): void; }) {
                 </>
             )}
             <FormSwitch
-                title="Embed Video Files"
-                description="Wrap uploaded video file links with https://embeds.video/ to embed videos that Discord might not embed. Only applies to video files (mp4, webm, mkv, etc.)."
-                value={settings.store.useEmbedsVideo === "Yes"}
-                onChange={(enabled: boolean) => updateSetting("useEmbedsVideo", enabled ? "Yes" : "No")}
-            />
-            <FormSwitch
                 title="Display Original Filename"
                 description="Format upload links as clickable text showing the original filename. Example: [vacation_video.mp4](link) instead of the raw link."
                 value={settings.store.autoFormat === "Yes"}
@@ -916,15 +910,6 @@ const settings = definePluginSettings({
         description: "Use desktop notifications instead of toasts",
         hidden: true
     },
-    useEmbedsVideo: {
-        type: OptionType.SELECT,
-        options: [
-            { label: "Yes", value: "Yes", default: true },
-            { label: "No", value: "No" },
-        ],
-        description: "Wrap uploaded video URLs with embeds.video for better embedding",
-        hidden: true
-    },
     dragAndDropEnabled: {
         type: OptionType.SELECT,
         options: [
@@ -1108,7 +1093,6 @@ async function handleSmallFileUpload(file: File, skipBatchStart = false) {
                 customUploaderBodyType: settings.store.customUploaderBodyType,
                 loggingLevel: (settings.store.loggingLevel as LoggingLevel) ?? "errors",
                 uploadTimeout: parseInt(settings.store.uploadTimeout || "300000", 10),
-				useEmbedsVideo: settings.store.useEmbedsVideo
             }
         );
 
@@ -1244,8 +1228,7 @@ async function triggerFileUpload() {
             loggingLevel: (settings.store.loggingLevel as LoggingLevel) ?? "errors",
             respectNitroLimit: settings.store.respectNitroLimit === "Yes",
             nitroTier: settings.store.nitroType,
-            uploadTimeout: parseInt(settings.store.uploadTimeout || "300000", 10),
-			useEmbedsVideo: settings.store.useEmbedsVideo
+            uploadTimeout: parseInt(settings.store.uploadTimeout || "300000", 10)
         }) as UploadResult & { useNativeUpload?: boolean; buffer?: ArrayBuffer };
 
         // If file is under Nitro limit, use Discord's native upload
