@@ -7,7 +7,7 @@
 import "./styles.css";
 
 import { DataStore } from "@api/index";
-import { EquicordDevs, FemcordDevs } from "@utils/constants";
+import { /*EquicordDevs, */FemcordDevs } from "@utils/constants";
 import * as Modal from "@utils/modal";
 import definePlugin from "@utils/types";
 // REMOVED "Flex" from the import below
