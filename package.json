@@ -66,7 +66,7 @@
         "@types/chrome": "^0.1.30",
         "@types/diff": "^7.0.2",
         "@types/lodash": "^4.17.20",
-        "@types/node": "latest",
+        "@types/node": "^18.0.0",
         "@types/react": "^19.0.10",
         "@types/react-dom": "^19.0.4",
         "@types/yazl": "^3.3.0",
