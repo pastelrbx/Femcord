@@ -32,10 +32,12 @@ interface PluginCardProps extends React.HTMLProps<HTMLDivElement> {
 export function PluginCard({ plugin, disabled, onRestartNeeded, onMouseEnter, onMouseLeave, isNew }: PluginCardProps) {
     const settings = Settings.plugins[plugin.name];
     const pluginMeta = PluginMeta[plugin.name];
+    const isFemcordPlugin = pluginMeta.folderName.startsWith("src/femcordplugins/") ?? false;
     const isEquicordPlugin = pluginMeta.folderName.startsWith("src/equicordplugins/") ?? false;
     const isVencordPlugin = pluginMeta.folderName.startsWith("src/plugins/") ?? false;
     const isUserPlugin = pluginMeta?.userPlugin ?? false;
     const isModifiedPlugin = plugin.isModified ?? false;
+    const isModifiedFemcordPlugin = plugin.isModifiedFemcord ?? false;
 
     const isEnabled = () => isPluginEnabled(plugin.name);
 
@@ -91,10 +93,22 @@ export function PluginCard({ plugin, disabled, onRestartNeeded, onMouseEnter, on
 
     const pluginInfo = [
         {
+            condition: isModifiedFemcordPlugin,
+            src: "https://raw.githubusercontent.com/pastelrbx/Femcord/refs/heads/main/assets/astolfo.png",
+            alt: "Modified",
+            title: "Modified Vencord/Equicord Plugin (Femcord)"
+        },
+        {
+            condition: isFemcordPlugin,
+            src: "https://raw.githubusercontent.com/pastelrbx/Femcord/refs/heads/main/assets/astolfo.png",
+            alt: "Femcord",
+            title: "Femcord Plugin"
+        },
+        {
             condition: isModifiedPlugin,
             src: "https://equicord.org/assets/icons/equicord/modified.png",
             alt: "Modified",
-            title: "Modified Vencord Plugin"
+            title: "Modified Vencord Plugin (Equicord)"
         },
         {
             condition: isEquicordPlugin,

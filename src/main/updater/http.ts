@@ -15,12 +15,14 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
-
+ 
 import { fetchBuffer, fetchJson } from "@main/utils/http";
 import { IpcEvents } from "@shared/IpcEvents";
 import { VENCORD_USER_AGENT } from "@shared/vencordUserAgent";
 import { ipcMain } from "electron";
-import { writeFileSync } from "original-fs";
+// import { writeFileSync as originalWriteFileSync } from "original-fs";
+import { writeFile } from "fs/promises";
+import { join } from "path";
 
 import gitHash from "~git-hash";
 import gitRemote from "~git-remote";
@@ -71,10 +73,10 @@ async function applyUpdates() {
     if (!PendingUpdate) return true;
 
     const data = await fetchBuffer(PendingUpdate);
-    writeFileSync(__dirname, data, { flush: true });
+    const filePath = join(__dirname, "..", ASAR_FILE);
+    await writeFile(filePath, data);
 
     PendingUpdate = null;
-
     return true;
 }
 

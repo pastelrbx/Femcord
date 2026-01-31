@@ -1,18 +1,18 @@
 {
-    "name": "equicord",
+    "name": "femcord",
     "private": "true",
     "version": "1.14.1.1",
     "description": "The other cutest Discord client mod",
-    "homepage": "https://github.com/Equicord/Equicord#readme",
+    "homepage": "https://github.com/pastelrbx/Femcord#readme",
     "bugs": {
-        "url": "https://github.com/Equicord/Equicord/issues"
+        "url": "https://github.com/pastelrbx/Femcord/issues"
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/Equicord/Equicord.git"
+        "url": "git+https://github.com/pastelrbx/Femcord.git"
     },
     "license": "GPL-3.0-or-later",
-    "author": "Equicord",
+    "author": "pastelrbx",
     "scripts": {
         "build": "node --require=./scripts/suppressExperimentalWarnings.js scripts/build/build.mjs",
         "buildStandalone": "pnpm build --standalone",
@@ -25,6 +25,7 @@
         "watchWeb": "pnpm buildWeb --watch",
         "generateDevsList": "tsx scripts/generateDevsList.ts",
         "generatePluginJson": "tsx scripts/generatePluginList.ts",
+        "generateFemcordPluginJson": "tsx scripts/generatePluginList.ts --femcord",
         "generateEquicordPluginJson": "tsx scripts/generatePluginList.ts --equicord",
         "generateVencordPluginJson": "tsx scripts/generatePluginList.ts --vencord",
         "generateTypes": "tspc --emitDeclarationOnly --declaration --outDir packages/vencord-types --allowJs false",
@@ -47,12 +48,14 @@
         "@types/tinycolor2": "^1.4.6",
         "@vap/core": "0.0.12",
         "@vap/shiki": "0.10.5",
+        "csstype": "^3.2.3",
         "fflate": "^0.8.2",
         "gifenc": "github:mattdesl/gifenc#64842fca317b112a8590f8fef2bf3825da8f6fe3",
         "idb": "8.0.3",
         "jsqr": "1.4.0",
         "monaco-editor": "^0.54.0",
         "nanoid": "^5.1.6",
+        "react": "^19.2.3",
         "usercss-meta": "^0.12.0",
         "virtual-merge": "^1.0.1"
     },
@@ -63,7 +66,7 @@
         "@types/chrome": "^0.1.30",
         "@types/diff": "^7.0.2",
         "@types/lodash": "^4.17.20",
-        "@types/node": "^24.10.1",
+        "@types/node": "^18.0.0",
         "@types/react": "^19.0.10",
         "@types/react-dom": "^19.0.4",
         "@types/yazl": "^3.3.0",
