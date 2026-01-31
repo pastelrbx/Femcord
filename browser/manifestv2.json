@@ -1,10 +1,10 @@
 {
     "manifest_version": 2,
     "minimum_chrome_version": "91",
-    "name": "BetterEquicord Web",
+    "name": "Femcord Web",
     "description": "The other cutest Discord mod now in your browser",
-    "author": "BetterEquicord",
-    "homepage_url": "https://github.com/Pharaoh2k/BetterEquicord",
+    "author": "pastelrbx",
+    "homepage_url": "https://github.com/pastelrbx/Femcord",
     "icons": {
         "128": "icon.png"
     },
@@ -34,7 +34,7 @@
                 "*://*.discord.com/*"
             ],
             "js": [
-                "dist/Equicord.js"
+                "dist/Femcord.js"
             ],
             "all_frames": true,
             "world": "MAIN"
@@ -46,8 +46,8 @@
         ]
     },
     "web_accessible_resources": [
-        "dist/Equicord.js",
-        "dist/Equicord.css"
+        "dist/Femcord.js",
+        "dist/Femcord.css"
     ],
     "browser_specific_settings": {
         "gecko": {

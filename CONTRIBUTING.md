@@ -1,6 +1,6 @@
-# Contributing to Equicord
+# Contributing to Femcord
 
-Equicord is a community project and welcomes any kind of contribution from anyone!
+Femcord is a community project and welcomes any kind of contribution from anyone!
 
 We have development documentation for new contributors, which can be found at <https://docs.equicord.org>.
 
@@ -39,9 +39,9 @@ Before starting your plugin:
 - No plugins that require the user to enter their own API key
 - Do not introduce new dependencies unless absolutely necessary and warranted
 
-## Improve Equicord itself
+## Improve Femcord itself
 
-If you have any ideas on how to improve Equicord itself, or want to propose a new plugin API, feel free to open a feature request so we can discuss.
+If you have any ideas on how to improve Femcord itself, or want to propose a new plugin API, feel free to open a feature request so we can discuss.
 
 Or if you notice any bugs or typos, feel free to fix them!
 

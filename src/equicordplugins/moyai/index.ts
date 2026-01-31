@@ -51,8 +51,8 @@ interface IVoiceChannelEffectSendEvent {
 }
 
 const MOYAI = "🗿";
-const MOYAI_URL = "https://github.com/Equicord/Equibored/raw/main/sounds/moyai/moyai.mp3";
-const MOYAI_URL_HD = "https://github.com/Equicord/Equibored/raw/main/sounds/moyai/moyai.wav";
+const MOYAI_URL = "https://github.com/pastelrbx/Fembored/raw/main/sounds/moyai/moyai.mp3";
+const MOYAI_URL_HD = "https://github.com/pastelrbx/Fembored/raw/main/sounds/moyai/moyai.wav";
 
 const settings = definePluginSettings({
     volume: {

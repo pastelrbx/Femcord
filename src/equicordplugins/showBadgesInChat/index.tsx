@@ -6,8 +6,8 @@
 
 import "./styles.css";
 
-import { Devs, EquicordDevs } from "@utils/constants";
-import { isEquicordPluginDev, isPluginDev } from "@utils/misc";
+import { Devs, EquicordDevs, FemcordDevs } from "@utils/constants";
+import { isFemcordPluginDev, isEquicordPluginDev, isPluginDev } from "@utils/misc";
 import definePlugin from "@utils/types";
 import { findComponentByCodeLazy, findCssClassesLazy } from "@webpack";
 import badges from "plugins/_api/badges";
@@ -37,6 +37,17 @@ const discordBadges: readonly [number, string, string][] = Object.freeze([
 function CheckBadge({ badge, author }: { badge: string; author: User; }): JSX.Element | null {
 
     switch (badge) {
+        case "FemcordContributer":
+            return isFemcordPluginDev(author.id) ? (
+                <span style={{ order: settings.store.FemcordContributorPosition }}>
+                    <RoleIconComponent
+                        className={roleIcon}
+                        name="Femcord Contributor"
+                        size={20}
+                        src={"https://raw.githubusercontent.com/pastelrbx/Femcord/refs/heads/main/assets/astolfo.png"}
+                    />
+                </span>
+            ) : null;
         case "EquicordDonor":
             return (
                 <span style={{ order: settings.store.EquicordDonorPosition }}>
@@ -128,6 +139,7 @@ function ChatBadges({ author }: { author: User; }) {
 
     return (
         <span className="vc-sbic-badge-row" style={{ margin: "2px" }}>
+            {settings.store.showFemcordContributor && <CheckBadge badge={"FemcordContributor"} author={author} />}
             {settings.store.showEquicordDonor && <CheckBadge badge={"EquicordDonor"} author={author} />}
             {settings.store.showEquicordContributor && <CheckBadge badge={"EquicordContributer"} author={author} />}
             {settings.store.showVencordDonor && <CheckBadge badge={"VencordDonor"} author={author} />}
@@ -140,8 +152,9 @@ function ChatBadges({ author }: { author: User; }) {
 
 export default definePlugin({
     name: "ShowBadgesInChat",
-    authors: [Devs.Inbestigator, EquicordDevs.KrystalSkull],
+    authors: [Devs.Inbestigator, EquicordDevs.KrystalSkull, FemcordDevs.Blue],
     description: "Shows the message author's badges beside their name in chat.",
+    isModifiedFemcord: true,
     settings,
     renderMessageDecoration(props) {
         return props.message?.author ? <ChatBadges author={props.message.author} /> : null;
