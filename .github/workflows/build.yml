@@ -6,7 +6,7 @@ on:
 
 env:
     FORCE_COLOR: true
-    GITHUB_TOKEN: ${{ secrets.ETOKEN }}
+    EGITHUB_TOKEN: ${{ secrets.ETOKEN }}
     REPO: pastelrbx/Fembored
     USERNAME: GitHub-Actions
 
@@ -72,9 +72,9 @@ jobs:
               run: |
                   git config --global user.name "GitHub-Actions"
                   git config --global user.email actions@github.com
-                  git clone https://$USERNAME:$GITHUB_TOKEN@github.com/$REPO.git plugins
+                  git clone https://$USERNAME:$EGITHUB_TOKEN@github.com/$REPO.git plugins
                   cd plugins
                   cp ../dist/release/*.json .
                   git add -A
                   git commit -m "Plugins for https://github.com/$GITHUB_REPOSITORY/commit/$GITHUB_SHA"
-                  git push --force https://$USERNAME:$GITHUB_TOKEN@github.com/$REPO.git
+                  git push --force https://$USERNAME:$EGITHUB_TOKEN@github.com/$REPO.git
