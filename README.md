@@ -5,11 +5,11 @@
 
 Femcord is a fork of [Vencord](https://github.com/Vendicated/Vencord), with over 300+ plugins.
 
-You can join our [Discord server](https://equicord.org/discord) for commits, changes, chatting, or even support.
+You can join the [Equicord Discord server](https://equicord.org/discord) for commits, changes, chatting, or even support.
 
 ### Included Plugins
 
-Our included plugins can be found [here](https://equicord.org/plugins).
+Equicord included plugins can be found [here](https://equicord.org/plugins).
 
 ## Installing / Uninstalling
 
