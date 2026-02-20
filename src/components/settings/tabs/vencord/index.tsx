@@ -24,7 +24,7 @@ import { gitRemote } from "@shared/vencordUserAgent";
 import { DONOR_ROLE_ID, GUILD_ID, IS_MAC, IS_WINDOWS, VC_DONOR_ROLE_ID, VC_GUILD_ID } from "@utils/constants";
 import { classNameFactory } from "@utils/css";
 import { Margins } from "@utils/margins";
-import { identity, isAnyPluginDev } from "@utils/misc";
+import { identity, isAnyPluginDev, isEquicordPluginDev, isFemcordPluginDev } from "@utils/misc";
 import { relaunch } from "@utils/native";
 import { GuildMemberStore, React, Select, UserStore } from "@webpack/common";
 import BadgeAPI from "plugins/_api/badges";
@@ -160,7 +160,7 @@ function EquicordSettings() {
                 <SpecialCard
                     title="Contributions"
                     subtitle="Thank you for contributing!"
-                    description="Since you've contributed to Equicord you now have a cool new badge!"
+                    description={`Since you've contributed to ${isFemcordPluginDev(user.id) ? "Femcord" : isEquicordPluginDev(user.id) ? "Equicord" : "Vencord"} you now have a cool new badge!`}
                     cardImage={COZY_CONTRIB_IMAGE}
                     backgroundImage={CONTRIB_BACKGROUND_IMAGE}
                     backgroundColor="#EDCC87"
@@ -223,7 +223,7 @@ function EquicordSettings() {
 
             <Heading className={Margins.top20}>Client Settings</Heading>
             <Paragraph className={Margins.bottom16}>
-                Configure how Equicord behaves and integrates with Discord. These settings affect the Discord client's appearance and behavior.
+                Configure how Femcord behaves and integrates with Discord. These settings affect the Discord client's appearance and behavior.
             </Paragraph>
             <Notice.Info className={Margins.bottom20} style={{ width: "100%" }}>
                 You can customize where this settings section appears in Discord's settings menu by configuring the{" "}
@@ -337,7 +337,7 @@ function EquicordSettings() {
 
             <Heading className={Margins.top20}>Notifications</Heading>
             <Paragraph className={Margins.bottom16}>
-                Configure how Equicord handles notifications. You can customize when and how you receive alerts, or view a history of past notifications.
+                Configure how Femcord handles notifications. You can customize when and how you receive alerts, or view a history of past notifications.
             </Paragraph>
 
             <Flex gap="16px">
@@ -352,7 +352,7 @@ function EquicordSettings() {
     );
 }
 
-export default wrapTab(EquicordSettings, "Equicord Settings");
+export default wrapTab(EquicordSettings, "Femcord Settings");
 
 export function isEquicordDonor(userId: string): boolean {
     const donorBadges = BadgeAPI.getEquicordDonorBadges(userId);

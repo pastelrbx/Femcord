@@ -871,6 +871,10 @@ export const EquicordDevs = Object.freeze({
         name: "bep",
         id: 0n
     },
+    Benjii: {
+        name: "Benjii",
+        id: 463702169443368970n
+    },
     llytz: {
         name: "llytz",
         id: 1271128098301022240n
@@ -1258,6 +1262,37 @@ export const EquicordDevs = Object.freeze({
     }
 } satisfies Record<string, Dev>);
 
+export const FemcordDevs = Object.freeze({
+    Blue: {
+        name: "blueworldclass",
+        id: 1425013333173735447n
+    },
+
+    // !!TestcordDevs BELOW!! \\
+
+    x2b: {
+        name: "x2b",
+        id: 996137713432530976n
+    },
+    Benjii: {
+        name: "Benjii",
+        id: 463702169443368970n
+    },
+    babystarsz: {
+        name: "babystarsz",
+        id: 1455985625441501209n
+    },
+    vampireslover: {
+        name: "vampireslover",
+        id: 1455033270709256284n
+    },
+
+    Bash: { // MessageCleaner and AutoUnmute
+        name: "Bash",
+        id: 1327483363518582784n,
+    },
+} satisfies Record<string, Dev>);
+
 // iife so #__PURE__ works correctly
 export const VencordDevsById = /* #__PURE__*/ (() =>
     Object.freeze(Object.fromEntries(
@@ -1270,6 +1305,14 @@ export const VencordDevsById = /* #__PURE__*/ (() =>
 export const EquicordDevsById = /* #__PURE__*/ (() =>
     Object.freeze(Object.fromEntries(
         Object.entries(EquicordDevs)
+            .filter(d => d[1].id !== 0n)
+            .map(([_, v]) => [v.id, v] as const)
+    ))
+)() as Record<string, Dev>;
+
+export const FemcordDevsById = /* #__PURE__*/ (() =>
+    Object.freeze(Object.fromEntries(
+        Object.entries(FemcordDevs)
             .filter(d => d[1].id !== 0n)
             .map(([_, v]) => [v.id, v] as const)
     ))
