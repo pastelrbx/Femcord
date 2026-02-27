@@ -53,7 +53,7 @@ jobs:
               with:
                   chrome-version: stable
 
-            - name: Build Equicord Reporter Version
+            - name: Build Femcord Reporter Version
               run: pnpm buildReporter
 
             - name: Run Reporter

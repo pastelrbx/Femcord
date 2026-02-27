@@ -160,6 +160,7 @@ export default function PluginModal({ plugin, onRestartNeeded, onClose, transiti
 
     const pluginMeta = PluginMeta[plugin.name];
     const isEquicordPlugin = pluginMeta.folderName.startsWith("src/equicordplugins/") ?? false;
+    const isFemcordPlugin = pluginMeta.folderName.startsWith("src/femcordplugins/") ?? false;
 
     return (
         <ModalRoot transitionState={transitionState} size={ModalSize.MEDIUM}>
@@ -194,7 +195,7 @@ export default function PluginModal({ plugin, onRestartNeeded, onClose, transiti
                                 renderUser={(user: User) => (
                                     <Clickable
                                         className={AvatarStyles.clickableAvatar}
-                                        onClick={() => isEquicordPlugin ? openContributorModal(user) : openContributorModal(user)}
+                                        onClick={() => openContributorModal(user)}
                                     >
                                         <img
                                             className={AvatarStyles.avatar}
@@ -237,7 +238,7 @@ export default function PluginModal({ plugin, onRestartNeeded, onClose, transiti
                             <div className={cl("links")}>
                                 <WebsiteButton
                                     text="Website"
-                                    href={isEquicordPlugin ? `https://equicord.org/plugins/${plugin.name}` : `https://vencord.dev/plugins/${plugin.name}`}
+                                    href={isFemcordPlugin? `https://github.com/${gitRemote}/tree/main/${pluginMeta.folderName}` : isEquicordPlugin ? `https://equicord.org/plugins/${plugin.name}` : `https://vencord.dev/plugins/${plugin.name}`}
                                 />
                                 <GithubButton
                                     text="Source Code"

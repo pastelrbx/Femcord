@@ -143,13 +143,13 @@ export function Updatable(props: CommonProps) {
             ) : isOutdated ? (
                 <>
                     <Paragraph>
-                        There {updates.length === 1 ? "is 1 update" : `are ${updates.length} updates`} available. Click the button below to download and install.
+                        There {updates.length === 1 ? "is 1 update" : `are ${updates.length} updates`} available. Click the button above to download and install.
                     </Paragraph>
                     <Changes updates={updates} {...props} />
                 </>
             ) : (
                 <Paragraph>
-                    You're running the latest version of Equicord.
+                    You're running the latest version of Femcord.
                 </Paragraph>
             )}
         </>

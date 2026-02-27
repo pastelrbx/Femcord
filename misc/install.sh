@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Configuration
-INSTALLER_PATH="$HOME/.equilotl"
-GITHUB_URL="https://github.com/Equicord/Equilotl/releases/latest/download/EquilotlCli-Linux"
+INSTALLER_PATH="$HOME/.axolotl"
+GITHUB_URL="https://github.com/pastelrbx/Axolotl/releases/latest/download/AxolotlCli-Linux"
 PRIVILEGE_CMDS=("sudo" "doas")
 DEBUG=false
 LOG_FILE="$(dirname "$(realpath "$0")")/equicordinstalldebug.log"
