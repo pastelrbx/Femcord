@@ -53,11 +53,9 @@
 
 ### Plugins
 
-- **No selfbot or API abuse.** Nothing that automates user actions, spoofs client state, or abuses Discord's API in any way.
 - No plugins that only do something trivially achievable with existing built-in plugins or Discord features.
-- No CSS-only plugins that only hide or redesign UI elements.
-- No plugins targeting specific third-party bots (official Discord apps are fine).
-- No untrusted third-party APIs. No plugins requiring users to supply their own API keys.
+- No CSS-only plugins that only hide or redesign UI elements. (Negotiable in some cases.)
+- No untrusted third-party APIs. No plugins requiring users to supply their own API keys. (Negotiable in some cases.)
 - Do not introduce new dependencies unless strictly necessary and well justified.
 
 ## Anti-Patterns
