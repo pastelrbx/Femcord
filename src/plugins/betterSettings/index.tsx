@@ -230,9 +230,9 @@ export default definePlugin({
                 }
             }
 
-            keyMap.set("Equicord", "Equicord");
+            keyMap.set("Femcord", "Femcord");
             items.push({
-                section: "Equicord",
+                section: "Femcord",
                 items: equicordItems
             });
         } else {
