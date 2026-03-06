@@ -6,8 +6,8 @@
 
 import "./styles.css";
 
-import { Logger } from "@utils/Logger"rom "@utils/constants";
-import { EquicordDevs, FemcordDevs } f
+import { Logger } from "@utils/Logger"
+import { EquicordDevs, FemcordDevs } from "@utils/constants";
 import definePlugin from "@utils/types";
 
 const logger = new Logger("RichMagnetLinks");
