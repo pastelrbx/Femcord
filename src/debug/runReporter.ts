@@ -28,7 +28,7 @@ async function runReporter() {
                 match: /(?<="use strict";)/,
                 replace: "Vencord.Webpack._initReporter();"
             }
-        }, "Equicord Reporter");
+        }, "Femcord Reporter");
 
         // @ts-expect-error
         Vencord.Webpack._initReporter = function () {
@@ -125,7 +125,7 @@ async function runReporter() {
 }
 
 // Imported in webpack for reporterData, wrap to avoid running reporter
-// Run after the Equicord object has been created.
-// We need to add extra properties to it, and it is only created after all of Equicord code has ran
+// Run after the Femcord object has been created.
+// We need to add extra properties to it, and it is only created after all of Femcord code has ran
 if (IS_REPORTER)
     setTimeout(runReporter, 0);

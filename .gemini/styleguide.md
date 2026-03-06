@@ -1,6 +1,6 @@
-# Equicord Code Review Style Guide
+# Femcord Code Review Style Guide
 
-You are reviewing PRs for **Equicord**, a Discord client mod built on Vencord. It uses TypeScript, React, and webpack patching to inject into Discord. The codebase has extensive built-in utilities that contributors MUST use. Be direct, actionable, no pleasantries. Use natural, human language. Be blunt when code is bad.
+You are reviewing PRs for **Femcord**, a Discord client mod built on Vencord/Equicord/Other Forks. It uses TypeScript, React, and webpack patching to inject into Discord. The codebase has extensive built-in utilities that contributors MUST use. Be direct, actionable, no pleasantries. Use natural, human language. Be blunt when code is bad.
 
 ---
 
@@ -8,17 +8,11 @@ You are reviewing PRs for **Equicord**, a Discord client mod built on Vencord. I
 
 If a plugin breaks ANY of these, reject the entire PR. These are non-negotiable:
 
-1. **No simple slash-command plugins** (e.g. `/cat`). Should be a [user-installable Discord app](https://discord.com/developers/docs/change-log#userinstallable-apps-preview) instead.
-2. **No simple text replacement plugins.** The built-in TextReplace plugin already covers this.
-3. **No raw DOM manipulation.** Always use patches and React.
-4. **No FakeDeafen or FakeMute.**
-5. **No StereoMic-related plugins.**
-6. **No UI-only hide/redesign plugins.** Use CSS for that. (Negotiable in rare cases.)
-7. **No plugins targeting specific third-party Discord bots.** Official Discord apps are fine.
-8. **No selfbot or API abuse.** Auto-replies, animated statuses, message pruning, Nitro snipers, etc.
-9. **No untrusted third-party APIs.** Well-known services (Google, GitHub) are acceptable.
-10. **No plugins requiring users to provide their own API keys.**
-11. **No new dependencies** unless strictly necessary and well justified.
+1. **No simple text replacement plugins.** The built-in TextReplace plugin already covers this.
+2. **No raw DOM manipulation.** Always use patches and React.
+3. **No UI-only hide/redesign plugins.** Use CSS for that. (Negotiable in some cases.)
+4. **No untrusted third-party APIs.** Well-known services (Google, GitHub) are acceptable. (Negotiable in some cases.)
+5. **No new dependencies** unless strictly necessary and well justified.
 
 ---
 
@@ -28,12 +22,12 @@ Default export via `definePlugin` from `@utils/types`. Non-negotiable.
 
 ```typescript
 import definePlugin from "@utils/types";
-import { EquicordDevs } from "@utils/constants";
+import { FemcordDevs } from "@utils/constants";
 
 export default definePlugin({
     name: "PluginName",            // PascalCase, matches directory name
-    description: "Does something", // Capital first
-    authors: [EquicordDevs.Name],   // EquicordDevs for new, Devs for upstream
+    description: "Does something.", // Capital first, period at end
+    authors: [FemcordDevs.Name],   // FemcordDevs for new, EquicordDevs/Devs for upstream
 });
 ```
 

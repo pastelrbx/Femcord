@@ -1,17 +1,22 @@
 {
     "manifest_version": 3,
     "minimum_chrome_version": "111",
-    "name": "Equicord Web",
+    "name": "Femcord Web",
     "description": "The other cutest Discord mod now in your browser",
-    "author": "Equicord",
-    "homepage_url": "https://github.com/Equicord/Equicord",
+    "author": "Divulgate",
+    "homepage_url": "https://github.com/Divulgate/Femcord",
     "icons": {
         "128": "icon.png"
     },
     "host_permissions": [
         "*://*.discord.com/*",
-        "https://raw.githubusercontent.com/*"
+        "https://raw.githubusercontent.com/*",
+        "https://cdn.discordapp.com/*",
+        "https://media.discordapp.net/*"
     ],
+    "background": {
+        "service_worker": "background.js"
+    },
     "permissions": [
         "declarativeNetRequest"
     ],
@@ -33,7 +38,7 @@
                 "*://*.discord.com/*"
             ],
             "js": [
-                "dist/Equicord.js"
+                "dist/Femcord.js"
             ],
             "all_frames": true,
             "world": "MAIN"

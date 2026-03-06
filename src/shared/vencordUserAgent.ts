@@ -10,5 +10,5 @@ import gitRemote from "~git-remote";
 export { gitHash, gitRemote };
 
 export const gitHashShort = gitHash.slice(0, 7);
-export const VENCORD_USER_AGENT = `Equicord/${gitHash}${gitRemote ? ` (https://github.com/${gitRemote})` : ""}`;
-export const VENCORD_USER_AGENT_HASHLESS = `Equicord${gitRemote ? ` (https://github.com/${gitRemote})` : ""}`;
+export const VENCORD_USER_AGENT = `Femcord/${gitHash}${gitRemote ? ` (https://github.com/${gitRemote})` : ""}`;
+export const VENCORD_USER_AGENT_HASHLESS = `Femcord${gitRemote ? ` (https://github.com/${gitRemote})` : ""}`;
