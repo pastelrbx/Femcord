@@ -129,11 +129,11 @@ export default definePlugin({
             }
         },
         STREAM_CREATE: d => {
-            streamKey = d;
+            streamKey = d.streamKey;
             isStreaming = true;
         },
         STREAM_DELETE: d => {
-            streamKey = d;
+            streamKey = d.streamKey;
             isStreaming = false;
         }
     },
