@@ -7,7 +7,7 @@
 import { getUserSettingLazy } from "@api/UserSettings";
 import { HeadingSecondary } from "@components/Heading";
 import { Paragraph } from "@components/Paragraph";
-import { Devs, EquicordDevs } from "@utils/constants";
+import { Devs, EquicordDevs, FemcordDevs } from "@utils/constants";
 import definePlugin from "@utils/types";
 import { VoiceState } from "@vencord/discord-types";
 import { findByCodeLazy, findStoreLazy } from "@webpack";
@@ -62,11 +62,12 @@ async function autoStartStream(instant = true) {
 export default definePlugin({
     name: "InstantScreenshare",
     description: "Instantly screenshare when joining a voice channel with support for desktop sources, windows, and video input devices (cameras, capture cards)",
-    authors: [Devs.HAHALOSAH, Devs.thororen, EquicordDevs.mart],
+    authors: [Devs.HAHALOSAH, Devs.thororen, EquicordDevs.mart, FemcordDevs.Blue],
     dependencies: ["EquicordToolbox"],
     tags: ["ScreenshareKeybind"],
     autoStartStream,
     settings,
+    isModifiedFemcord: true,
 
     settingsAboutComponent: () => (
         <>

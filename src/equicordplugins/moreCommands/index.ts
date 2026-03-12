@@ -19,10 +19,10 @@
 import { ApplicationCommandInputType, ApplicationCommandOptionType, findOption, OptionalMessageOption, RequiredMessageOption, sendBotMessage } from "@api/Commands";
 import { addMessagePreEditListener, addMessagePreSendListener, MessageObject, removeMessagePreEditListener, removeMessagePreSendListener } from "@api/MessageEvents";
 import { migratePluginSettings } from "@api/Settings";
-import { Devs, EquicordDevs } from "@utils/constants";
+import { Devs, EquicordDevs, FemcordDevs } from "@utils/constants";
 import { sendMessage } from "@utils/discord";
 import definePlugin from "@utils/types";
-import { DraftType, UploadHandler, UploadManager, UserAffinitiesStore, UserStore } from "@webpack/common";
+import { DraftType, UploadHandler, UploadManager, UserAffinitiesStore, UserStore, IconUtils } from "@webpack/common";
 import { applyPalette, GIFEncoder, quantize } from "gifenc";
 
 import {
@@ -65,9 +65,11 @@ export default definePlugin({
         Devs.Samwich,
         EquicordDevs.Fafa,
         Devs.JacobTm,
-        EquicordDevs.voidbbg
+        EquicordDevs.voidbbg,
+        FemcordDevs.Blue
     ],
     settings,
+    isModifiedFemcord: true,
     commands: [
         {
             name: "systeminfo",
@@ -552,9 +554,7 @@ export default definePlugin({
 
                     const drawImage = async user => {
                         try {
-                            const avatarUrl = user.member?.avatar
-                                ? `https://cdn.discordapp.com/avatars/${user.member.id}/${user.member?.avatar}.webp?size=256`
-                                : `https://cdn.discordapp.com/embed/avatars/${user.member.id as any as number % 5}.png`;
+                            const avatarUrl = IconUtils.getUserAvatarURL(user.member, { size: 256 });
 
                             const img = await loadFriendImage(avatarUrl);
                             const centerX = user.x + user.size / 2;
