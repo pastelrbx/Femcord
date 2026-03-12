@@ -127,8 +127,7 @@ async function doSyncV2(uploads: SyncRequest["uploads"], clientManifest: Manifes
             body: JSON.stringify({ client_manifest: clientManifest, uploads } satisfies SyncRequest),
         });
     } catch {
-        logger.info("Server does not support v2, falling back to v1");
-        await setApiVersion("v1");
+        logger.warn("Failed to reach v2 sync endpoint, will retry next time");
         return null;
     }
 
