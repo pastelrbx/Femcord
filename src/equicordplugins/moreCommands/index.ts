@@ -554,7 +554,7 @@ export default definePlugin({
 
                     const drawImage = async user => {
                         try {
-                            const avatarUrl = IconUtils.getUserAvatarURL(user.member, { size: 256 });
+                            const avatarUrl = IconUtils.getUserAvatarURL(user.member);
 
                             const img = await loadFriendImage(avatarUrl);
                             const centerX = user.x + user.size / 2;
