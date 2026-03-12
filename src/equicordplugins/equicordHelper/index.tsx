@@ -314,9 +314,7 @@ export default definePlugin({
         }
     },
     stop() {
-        if (settings.store.noBulletPoints) {
-            removeMessagePreSendListener(listener);
-        }
+        removeMessagePreSendListener(listener);
     }
 });
 
