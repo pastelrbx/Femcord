@@ -37,7 +37,7 @@ export function parseTagArguments(message: string) {
         const [name, defaultValue] = value.split("=").map(s => s.trim());
 
         if (!name) continue;
-        if (args.some(arg => arg.name === name)) continue;
+        if (args.some(arg => arg.name === name.toLowerCase())) continue;
 
         args.push({ name: name.toLowerCase(), defaultValue: defaultValue ?? null });
     }
