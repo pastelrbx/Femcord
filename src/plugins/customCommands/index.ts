@@ -73,7 +73,7 @@ export function registerTagCommand(tag: Tag) {
             const response = tag.message
                 .replace(ArgumentRegex, (fullMatch, value: string) => {
                     const [argName, defaultValue] = value.split("=").map(s => s.trim());
-                    return findOption(args, argName, null) ?? defaultValue ?? fullMatch;
+                    return findOption(args, argName.toLowerCase(), null) ?? defaultValue ?? fullMatch;
                 })
                 .replaceAll("\\n", "\n");
 
