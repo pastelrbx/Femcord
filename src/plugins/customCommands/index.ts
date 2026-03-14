@@ -20,7 +20,7 @@ import "./styles.css";
 
 import { ApplicationCommandInputType, ApplicationCommandOptionType, findOption, registerCommand, sendBotMessage } from "@api/Commands";
 import { migratePluginSettings } from "@api/Settings";
-import { Devs } from "@utils/constants";
+import { Devs, FemcordDevs } from "@utils/constants";
 import { sendMessage } from "@utils/discord";
 import definePlugin from "@utils/types";
 
@@ -89,8 +89,9 @@ export default definePlugin({
     name: "CustomCommands",
     description: "Allows you to create custom slash commands / tags",
     tags: ["MessageTags"],
-    authors: [Devs.Ven, Devs.Luna,],
+    authors: [Devs.Ven, Devs.Luna, FemcordDevs.Blue],
     settings,
+    isModifiedFemcord: true,
 
     async start() {
         const tags = getTags();
