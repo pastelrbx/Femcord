@@ -4,7 +4,6 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-import { disableStyle, enableStyle } from "@api/Styles";
 import { EquicordDevs, FemcordDevs } from "@utils/constants";
 import definePlugin from "@utils/types";
 import { ChannelRTCStore, ChannelStore, UserStore, VoiceStateStore } from "@webpack/common";
@@ -16,6 +15,7 @@ export default definePlugin({
     description: "Makes avatars take up the entire vc tile",
     authors: [EquicordDevs.mochienya, FemcordDevs.Blue],
     isModifiedFemcord: true,
+    managedStyle,
     patches: [
         {
             find: "\"data-selenium-video-tile\":",
@@ -42,12 +42,5 @@ export default definePlugin({
         return {
             "--full-res-avatar": `url(${avatarUrl})`
         };
-    },
-
-    start() {
-        enableStyle(style);
-    },
-    stop() {
-        disableStyle(style);
     },
 });
